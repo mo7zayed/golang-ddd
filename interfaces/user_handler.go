@@ -25,7 +25,7 @@ func NewUserHandler(user application.UserAppInterface) *UsersHandler {
 
 // Index method
 func (handler *UsersHandler) Index(c echo.Context) error {
-	perPage := 20
+	perPage := 2000
 
 	pageNumber, _ := strconv.Atoi(c.FormValue("page"))
 
