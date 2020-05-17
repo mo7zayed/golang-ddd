@@ -2,13 +2,13 @@ package main
 
 import (
 	"ddd/domain/entity"
-	"ddd/infrastructure/persistence"
+	"ddd/infrastructure/eloquent"
 	"ddd/utils/helpers"
 	"fmt"
 )
 
 func main() {
-	r, err := persistence.NewRepositories()
+	r, err := eloquent.NewRepositories()
 
 	r.Statement("TRUNCATE TABLE users;")
 

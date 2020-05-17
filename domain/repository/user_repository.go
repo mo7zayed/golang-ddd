@@ -4,6 +4,7 @@ import "ddd/domain/entity"
 
 // UserRepository instance
 type UserRepository interface {
+	All(perPage int, pageNumber int) (*entity.Users, error)
 	Create(user entity.User) (*entity.User, error)
 	Update(id uint, data map[string]interface{}) (*entity.User, error)
 	Delete(id uint) error

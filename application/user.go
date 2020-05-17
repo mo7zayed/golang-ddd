@@ -17,6 +17,11 @@ type UserAppInterface interface {
 
 var _ UserAppInterface = &UserApplication{}
 
+// All user
+func (app UserApplication) All(perPage int, pageNumber int) (*entity.Users, error) {
+	return app.repo.All(perPage, pageNumber)
+}
+
 // Create user
 func (app UserApplication) Create(user entity.User) (*entity.User, error) {
 	return app.repo.Create(user)

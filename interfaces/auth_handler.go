@@ -107,11 +107,18 @@ func (handler *AuthHandler) Register(c echo.Context) error {
 
 	data, err := user.GenerateToken()
 
-	if err != nil {
+	token, ok := data["token"]
+
+	if err != nil || !ok {
 		return helpers.Respond(c, map[string]interface{}{
 			"message": "Error generating user token",
 		}, http.StatusInternalServerError, false)
 	}
+
+	// update the token field in database.
+	handler.user.Update(user.ID, map[string]interface{}{
+		"token": token,
+	})
 
 	return helpers.Respond(c, data, http.StatusOK, true)
 }

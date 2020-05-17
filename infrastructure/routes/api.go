@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"ddd/infrastructure/persistence"
+	"ddd/infrastructure/eloquent"
 	"ddd/interfaces"
 	"ddd/interfaces/middlewares"
 	"ddd/utils/helpers"
@@ -19,8 +19,8 @@ func RegisterRoutes(port string) {
 
 	// Middleware
 	e.Use(
-		// middleware.Logger(),
-		// middleware.Recover(),
+		middleware.Logger(),
+		middleware.Recover(),
 		middleware.CORS(),
 	)
 
@@ -35,7 +35,7 @@ func RegisterRoutes(port string) {
 	{
 		api := e.Group("/api/v1")
 
-		repos, err := persistence.NewRepositories()
+		repos, err := eloquent.NewRepositories()
 
 		if err != nil {
 			helpers.HandleErrors(err)

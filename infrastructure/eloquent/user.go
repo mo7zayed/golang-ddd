@@ -1,4 +1,4 @@
-package persistence
+package eloquent
 
 import (
 	"ddd/domain/entity"
@@ -20,6 +20,19 @@ var _ repository.UserRepository = &UserEloquentRepository{}
 // NewUserRepository : Instanciate new repository instance
 func NewUserRepository(db *gorm.DB) *UserEloquentRepository {
 	return &UserEloquentRepository{db}
+}
+
+// All users
+func (r *UserEloquentRepository) All(perPage int, pageNumber int) (*entity.Users, error) {
+	var users entity.Users
+
+	err := r.db.Limit(perPage).Offset((pageNumber - 1) * perPage).Find(&users).Error
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &users, nil
 }
 
 // Create new user
