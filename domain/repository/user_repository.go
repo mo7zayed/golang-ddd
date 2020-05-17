@@ -9,4 +9,6 @@ type UserRepository interface {
 	Delete(id uint) error
 	Find(id uint) (*entity.User, error)
 	FindUserByEmailAndPassword(email string, password string) (*entity.User, error)
+	FindUserByEmail(email string) (*entity.User, error)
+	FindUserByToken(token string) (*entity.User, error)
 }

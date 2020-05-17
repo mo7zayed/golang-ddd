@@ -24,6 +24,11 @@ func NewRepositories() (*Repositories, error) {
 	}, nil
 }
 
+// Statement method to execute a custom database statement
+func (repositories *Repositories) Statement(statement string, values ...interface{}) {
+	repositories.db.Exec(statement, values)
+}
+
 // Close the  database connection
 func (repositories *Repositories) Close() error {
 	return repositories.db.Close()

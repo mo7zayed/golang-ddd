@@ -5,6 +5,8 @@ import (
 	"errors"
 
 	"github.com/jinzhu/gorm"
+
+	//  importing db mysql driver
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 

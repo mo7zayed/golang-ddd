@@ -21,7 +21,7 @@ func MysqlConnect() *gorm.DB {
 
 	helpers.HandleErrors(err)
 
-	db.LogMode(true)
+	db.LogMode(helpers.GetEnv("ENABLE_DB_LOG_MODE") == "enable")
 
 	return db
 }
