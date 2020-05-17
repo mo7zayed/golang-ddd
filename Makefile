@@ -2,7 +2,6 @@ GCC=go
 
 serve:
 	$(GCC) run main.go
-
 dev:
 	fresh
 migrate:

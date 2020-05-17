@@ -27,12 +27,6 @@ type PublicUser struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
-// JWTClaims that will be claimed with encoded token
-type JWTClaims struct {
-	User PublicUser `json:"user"`
-	jwt.StandardClaims
-}
-
 // Users ...
 type Users []User
 

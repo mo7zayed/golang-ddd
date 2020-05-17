@@ -61,6 +61,16 @@ func RegisterRoutes(port string) {
 			api.PATCH("/users/:id", users.Update, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
 			api.DELETE("/users/:id", users.Delete, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
 		}
+
+		{
+			groups := interfaces.NewGroupHandler(repos.Group)
+
+			api.GET("/groups", groups.Index, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
+			api.POST("/groups", groups.Create, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
+			api.GET("/groups/:id", groups.Show, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
+			api.PATCH("/groups/:id", groups.Update, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
+			api.DELETE("/groups/:id", groups.Delete, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
+		}
 	}
 
 	fmt.Println(

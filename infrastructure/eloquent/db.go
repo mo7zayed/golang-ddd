@@ -11,6 +11,7 @@ import (
 // Repositories its just like a container holding all register repositories in the app
 type Repositories struct {
 	User repository.UserRepository
+	Group repository.GroupRepository
 	db   *gorm.DB
 }
 
@@ -20,6 +21,7 @@ func NewRepositories() (*Repositories, error) {
 
 	return &Repositories{
 		User: NewUserRepository(db),
+		Group: NewGroupRepository(db),
 		db:   db,
 	}, nil
 }
@@ -38,5 +40,6 @@ func (repositories *Repositories) Close() error {
 func (repositories *Repositories) AutoMigrate() error {
 	return repositories.db.AutoMigrate(
 		&entity.User{},
+		&entity.Group{},
 	).Error
 }
