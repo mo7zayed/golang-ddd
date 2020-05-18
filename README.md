@@ -26,3 +26,7 @@ The files structure needs enhancement it can be better.
 - npm install
 - npm run dev
 - have fun ...
+
+##### Run the application
+- make serve
+- cd client && npm run dev
