@@ -1,10 +1,10 @@
 package middlewares
 
 import (
-	"ddd/domain/entity"
-	"ddd/infrastructure/database"
-	"ddd/utils/auth"
-	"ddd/utils/helpers"
+	"golang-ddd/domain/entity"
+	"golang-ddd/infrastructure/database"
+	"golang-ddd/utils/auth"
+	"golang-ddd/utils/helpers"
 
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"

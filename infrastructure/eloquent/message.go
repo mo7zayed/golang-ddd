@@ -1,8 +1,8 @@
 package eloquent
 
 import (
-	"ddd/domain/entity"
-	"ddd/domain/repository"
+	"golang-ddd/domain/entity"
+	"golang-ddd/domain/repository"
 
 	"github.com/jinzhu/gorm"
 )

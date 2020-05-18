@@ -1,8 +1,8 @@
 package application
 
 import (
-	"ddd/domain/entity"
-	"ddd/domain/repository"
+	"golang-ddd/domain/entity"
+	"golang-ddd/domain/repository"
 )
 
 // MessageApplication struct that holds the logic layer

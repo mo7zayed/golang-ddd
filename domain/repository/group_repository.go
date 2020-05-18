@@ -1,6 +1,6 @@
 package repository
 
-import "ddd/domain/entity"
+import "golang-ddd/domain/entity"
 
 // GroupRepository instance
 type GroupRepository interface {

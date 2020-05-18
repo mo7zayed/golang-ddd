@@ -1,10 +1,10 @@
 package routes
 
 import (
-	"ddd/infrastructure/eloquent"
-	"ddd/interfaces"
-	"ddd/interfaces/middlewares"
-	"ddd/utils/helpers"
+	"golang-ddd/infrastructure/eloquent"
+	"golang-ddd/interfaces"
+	"golang-ddd/interfaces/middlewares"
+	"golang-ddd/utils/helpers"
 	"fmt"
 	"net/http"
 

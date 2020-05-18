@@ -1,9 +1,9 @@
 package main
 
 import (
-	"ddd/domain/entity"
-	"ddd/infrastructure/eloquent"
-	"ddd/utils/helpers"
+	"golang-ddd/domain/entity"
+	"golang-ddd/infrastructure/eloquent"
+	"golang-ddd/utils/helpers"
 	"fmt"
 )
 

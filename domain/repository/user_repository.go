@@ -1,6 +1,6 @@
 package repository
 
-import "ddd/domain/entity"
+import "golang-ddd/domain/entity"
 
 // UserRepository instance
 type UserRepository interface {

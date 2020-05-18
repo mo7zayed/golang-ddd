@@ -1,7 +1,7 @@
 package database
 
 import (
-	"ddd/utils/helpers"
+	"golang-ddd/utils/helpers"
 	"errors"
 
 	"github.com/jinzhu/gorm"

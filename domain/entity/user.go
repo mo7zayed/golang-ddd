@@ -1,8 +1,8 @@
 package entity
 
 import (
-	"ddd/infrastructure/models"
-	"ddd/utils/helpers"
+	"golang-ddd/infrastructure/models"
+	"golang-ddd/utils/helpers"
 	"html"
 	"strings"
 	"time"

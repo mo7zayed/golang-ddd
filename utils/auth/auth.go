@@ -1,8 +1,8 @@
 package auth
 
 import (
-	"ddd/utils/helpers"
 	"fmt"
+	"golang-ddd/utils/helpers"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"

@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"ddd/infrastructure/models"
+	"golang-ddd/infrastructure/models"
 )
 
 // Group Entity

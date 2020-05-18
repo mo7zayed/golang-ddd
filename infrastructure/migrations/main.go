@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ddd/infrastructure/eloquent"
-	"ddd/utils/helpers"
+	"golang-ddd/infrastructure/eloquent"
+	"golang-ddd/utils/helpers"
 )
 
 func main() {

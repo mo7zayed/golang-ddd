@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ddd/infrastructure/bootstrap"
 	"flag"
+	"golang-ddd/infrastructure/bootstrap"
 )
 
 var port string

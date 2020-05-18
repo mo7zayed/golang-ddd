@@ -1,10 +1,10 @@
 package interfaces
 
 import (
-	"ddd/application"
-	"ddd/domain/entity"
-	"ddd/utils/auth"
-	"ddd/utils/helpers"
+	"golang-ddd/application"
+	"golang-ddd/domain/entity"
+	"golang-ddd/utils/auth"
+	"golang-ddd/utils/helpers"
 	"net/http"
 
 	"github.com/labstack/echo"
