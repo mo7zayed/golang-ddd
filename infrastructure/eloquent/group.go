@@ -21,44 +21,44 @@ func NewGroupRepository(db *gorm.DB) *GroupEloquentRepository {
 	return &GroupEloquentRepository{db}
 }
 
-// All users
+// All groups
 func (r *GroupEloquentRepository) All(perPage int, pageNumber int) (*entity.Groups, error) {
-	var users entity.Groups
+	var groups entity.Groups
 
-	err := r.db.Limit(perPage).Offset((pageNumber - 1) * perPage).Find(&users).Error
-
-	if err != nil {
-		return nil, err
-	}
-
-	return &users, nil
-}
-
-// Create new user
-func (r *GroupEloquentRepository) Create(user entity.Group) (*entity.Group, error) {
-	err := r.db.Create(&user).Error
+	err := r.db.Limit(perPage).Offset((pageNumber - 1) * perPage).Find(&groups).Error
 
 	if err != nil {
 		return nil, err
 	}
 
-	return &user, nil
+	return &groups, nil
 }
 
-// Update user
+// Create new group
+func (r *GroupEloquentRepository) Create(group entity.Group) (*entity.Group, error) {
+	err := r.db.Create(&group).Error
+
+	if err != nil {
+		return nil, err
+	}
+
+	return &group, nil
+}
+
+// Update group
 func (r *GroupEloquentRepository) Update(id uint, data map[string]interface{}) (*entity.Group, error) {
-	var user entity.Group
+	var group entity.Group
 
-	err := r.db.First(&user, id).Updates(data).Error
+	err := r.db.First(&group, id).Updates(data).Error
 
 	if err != nil {
 		return nil, err
 	}
 
-	return &user, nil
+	return &group, nil
 }
 
-// Delete user
+// Delete group
 func (r *GroupEloquentRepository) Delete(id uint) error {
 	err := r.db.Where("id LIKE ?", id).Delete(entity.Group{}).Error
 
@@ -69,19 +69,19 @@ func (r *GroupEloquentRepository) Delete(id uint) error {
 	return nil
 }
 
-// Find a user
+// Find a group
 func (r *GroupEloquentRepository) Find(id uint) (*entity.Group, error) {
-	var user entity.Group
+	var group entity.Group
 
-	err := r.db.First(&user, id).Error
+	err := r.db.First(&group, id).Error
 
 	if gorm.IsRecordNotFoundError(err) {
-		return nil, errors.New("user not found")
+		return nil, errors.New("group not found")
 	}
 
 	if err != nil {
 		return nil, err
 	}
 
-	return &user, nil
+	return &group, nil
 }

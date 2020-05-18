@@ -31,11 +31,11 @@ func RegisterRoutes(port string) {
 		}, http.StatusOK, true)
 	})
 
+	repos, err := eloquent.NewRepositories()
+
 	// Routes V1
 	{
 		api := e.Group("/api/v1")
-
-		repos, err := eloquent.NewRepositories()
 
 		if err != nil {
 			helpers.HandleErrors(err)
@@ -50,6 +50,16 @@ func RegisterRoutes(port string) {
 			api.POST("/logout", auth.Logout, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
 			api.POST("/me", auth.Me, middlewares.UserMustBeAuthenticated(), middlewares.CheckTokenIsNotInvalidated())
 			api.POST("/refresh", auth.Refresh, middlewares.CheckTokenIsNotInvalidated())
+		}
+
+		// Websockets
+		{
+			messages := interfaces.NewMessagesHandler(repos.Message)
+
+			api.GET("/ws", messages.HandleConnections)
+			api.GET("/messages-by-channel/:channel", messages.ListByChannelName)
+
+			go interfaces.HandleWSMessages()
 		}
 
 		{

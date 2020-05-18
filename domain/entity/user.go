@@ -17,13 +17,15 @@ type User struct {
 	Email    string `gorm:"size:100;not null;unique" json:"email"`
 	Password string `gorm:"size:100;not null;" json:"password"`
 	Token    string `gorm:"size:500;null;" json:"token"`
+	UserType string `gorm:"size:10;null;" sql:"DEFAULT:'user'" json:"user_type"`
 }
 
 // PublicUser instance that will be displayable
 type PublicUser struct {
 	ID        uint      `json:"id"`
-	Name      string    `gorm:"size:100;not null;" json:"name"`
-	Email     string    `gorm:"size:100;not null;unique" json:"email"`
+	Name      string    `json:"name"`
+	Email     string    `json:"email"`
+	UserType  string    `json:"user_type"`
 	CreatedAt time.Time `json:"created_at"`
 }
 
@@ -42,6 +44,7 @@ func (u *User) PublicUser() PublicUser {
 		ID:        u.ID,
 		Name:      u.Name,
 		Email:     u.Email,
+		UserType:  u.UserType,
 		CreatedAt: u.CreatedAt,
 	}
 }

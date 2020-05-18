@@ -51,8 +51,8 @@
     methods: {
       async submit() {
         try {
-
           let $data = new FormData()
+
           $data.append("name", this.form.name)
 
           let response = await this.$axios.post('groups', $data)

@@ -25,9 +25,9 @@
                 {{ room.name }}
               </td>
               <td>
-                <a href="#" class="btn btn-info">
+                <nuxt-link :to="'/rooms/join/' + room.id" class="btn btn-info">
                   Join
-                </a>
+                </nuxt-link>
                 <a href="#" class="btn btn-danger" @click.prevent="deleteRoom(room.id, index)">
                   Delete
                 </a>

@@ -16,12 +16,13 @@ func main() {
 		helpers.HandleErrors(err)
 	}
 
-	count := 20
+	count := 10
 
 	r.User.Create(entity.User{
 		Name:     "Admin",
 		Email:    "admin@gmail.com",
 		Password: "123456",
+		UserType: "admin",
 	})
 
 	for i := 1; i <= count; i++ {

@@ -25,7 +25,7 @@
               </nuxt-link>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" v-if="$auth.user.user_type == 'admin'">
               <nuxt-link class="nav-link" to="/users/">
                 Users
               </nuxt-link>

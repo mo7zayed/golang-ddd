@@ -10,9 +10,10 @@ import (
 
 // Repositories its just like a container holding all register repositories in the app
 type Repositories struct {
-	User repository.UserRepository
-	Group repository.GroupRepository
-	db   *gorm.DB
+	User    repository.UserRepository
+	Group   repository.GroupRepository
+	Message repository.MessageRepository
+	db      *gorm.DB
 }
 
 // NewRepositories : its just like a container holding all register repositories in the app
@@ -20,9 +21,10 @@ func NewRepositories() (*Repositories, error) {
 	db := database.Connect()
 
 	return &Repositories{
-		User: NewUserRepository(db),
-		Group: NewGroupRepository(db),
-		db:   db,
+		User:    NewUserRepository(db),
+		Group:   NewGroupRepository(db),
+		Message: NewMessageRepository(db),
+		db:      db,
 	}, nil
 }
 
@@ -41,5 +43,6 @@ func (repositories *Repositories) AutoMigrate() error {
 	return repositories.db.AutoMigrate(
 		&entity.User{},
 		&entity.Group{},
+		&entity.Message{},
 	).Error
 }
